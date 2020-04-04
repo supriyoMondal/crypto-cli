@@ -1,0 +1,10 @@
+const program = require('commander');
+const { price } = require('../commands/check')
+program
+    .command('price')
+    .description('Check price of coins.')
+    .option('--coin <type>', 'Add specific coin types in CSV format', 'BTC,ETH,XRP')
+    .option('--curr <currency>', 'Change the currency', 'USD')
+    .action((cmd) => price(cmd));
+
+program.parse(process.argv);
